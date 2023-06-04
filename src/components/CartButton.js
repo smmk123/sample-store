@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Typography } from '@mui/material';
 
 const CartButton = ({ itemId, quantity, onUpdateQuantity, stock }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -14,7 +15,7 @@ const CartButton = ({ itemId, quantity, onUpdateQuantity, stock }) => {
   };
 
   const handleIncreaseQuantity = () => {
-    if (stock > 0) {
+    if (itemQuantity < stock) {
       const newQuantity = itemQuantity + 1;
       setItemQuantity(newQuantity);
       onUpdateQuantity(newQuantity);
@@ -23,25 +24,39 @@ const CartButton = ({ itemId, quantity, onUpdateQuantity, stock }) => {
 
   return (
     <div className="flex items-center">
-      <button
-        className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mr-2 ${
-          itemQuantity === 1 ? 'bg-red-500' : ''
+      <Typography
+        variant="body2"
+        className={`text-red-500 cursor-pointer ${
+          itemQuantity === 1 ? 'opacity-50 cursor-not-allowed' : ''
         }`}
         onClick={handleDecreaseQuantity}
-        disabled={itemQuantity === 1 && stock === 0}
+        style={{
+          padding: '10px',
+          borderRadius: '4px',
+          fontWeight: 'bold',
+          fontSize: 'larger',
+        }}
       >
-        {itemQuantity === 1 ? 'Remove from Cart' : '-'}
-      </button>
-      <p className="text-gray-600">{itemQuantity}</p>
-      <button
-        className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md ml-2 ${
-          stock === 0 ? 'bg-gray-400 hover:bg-bgray-400 cursor-not-allowed' : ''
+        -
+      </Typography>
+      <Typography variant="body2" className="text-gray-600 mx-2">
+        {itemQuantity}
+      </Typography>
+      <Typography
+        variant="body2"
+        className={`text-blue-500 cursor-pointer ${
+          stock === 0 ? 'opacity-50 cursor-not-allowed' : ''
         }`}
         onClick={handleIncreaseQuantity}
-        disabled={stock === 0}
+        style={{
+          padding: '10px',
+          borderRadius: '4px',
+          fontWeight: 'bold',
+          fontSize: 'larger',
+        }}
       >
         +
-      </button>
+      </Typography>
     </div>
   );
 };

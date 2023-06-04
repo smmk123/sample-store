@@ -60,58 +60,56 @@ const Login = () => {
   };
 
   return (
-    <Paper>
-      <div className="container">
-        <p
-          ref={errRef}
-          className={errMsg ? 'errmsg' : 'offscreen'}
-          aria-live="assertive"
-        >
-          {errMsg}
-        </p>
-        <h1 className="text-2xl font-bold mb-4">Sign In</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <label htmlFor="email" className="font-semibold">
-            Email:
-          </label>
-          <input
-            type="text"
-            id="email"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-            className="w-full border border-gray-300 rounded-md text-black py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+    <section>
+      <p
+        ref={errRef}
+        className={errMsg ? 'errmsg' : 'offscreen'}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
+      <h1 className="text-2xl font-bold mb-4">Sign In</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <label htmlFor="email" className="font-semibold">
+          Email:
+        </label>
+        <input
+          type="text"
+          id="email"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          required
+          className="w-full border border-gray-300 rounded-md text-black py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            autoComplete="current-password"
-            required
-            className="w-full border border-gray-300 rounded-md text-black py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
-            Sign In
-          </button>
-          <div className="persistCheck">
-            <input type="checkbox" id="persist" onChange={togglePersist} />
-            <label htmlFor="persist">Trust This Device</label>
-          </div>
-        </form>
-        <p>
-          Need an Account?
-          <br />
-          <span className="line">
-            <Link to="/register">Sign Up</Link>
-          </span>
-        </p>
-      </div>
-    </Paper>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          autoComplete="current-password"
+          required
+          className="w-full border border-gray-300 rounded-md text-black py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
+          Sign In
+        </button>
+        <div className="persistCheck">
+          <input type="checkbox" id="persist" onChange={togglePersist} />
+          <label htmlFor="persist">Trust This Device</label>
+        </div>
+      </form>
+      <p>
+        Need an Account?
+        <br />
+        <span className="line">
+          <Link to="/register">Sign Up</Link>
+        </span>
+      </p>
+    </section>
   );
 };
 

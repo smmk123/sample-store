@@ -14,20 +14,6 @@ html {
   font-size: 22px;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
-  width: 100%;
-  max-width: 420px;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 section {
   width: 100%;
   max-width: 420px;
@@ -35,8 +21,12 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  margin: 2rem auto;
+  padding: 0.5rem;
+  background-color: rgba(35, 147, 212, 0.795);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -145,6 +135,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    min-height: 100vh;
 }
 
 

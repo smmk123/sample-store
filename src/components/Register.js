@@ -52,7 +52,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if button enabled with JS hack
     const v1 = USER_REGEX.test(name);
     const v2 = PassWorD_REGEX.test(password);
     if (!v1 || !v2) {
@@ -65,15 +64,10 @@ const Register = () => {
         JSON.stringify({ name, password, email }),
         {
           headers: { 'Content-Type': 'application/json' },
-          // withCredentials: true
         }
       );
 
-      // TODO: remove console.logs before deployment
-      console.log(JSON.stringify(response?.data));
-      //console.log(JSON.stringify(response))
       setSuccess(true);
-      //clear state and controlled inputs
       setName('');
       setEmail('');
       setPassword('');

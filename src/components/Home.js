@@ -1,32 +1,12 @@
-import { useNavigate, Link } from 'react-router-dom';
-import useLogout from '../hooks/useLogout';
-import { Paper } from '@mui/material';
-import { Suspense } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom';
+import { ShoppingCart } from '@mui/icons-material';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const logout = useLogout();
-
-  const signOut = async () => {
-    await logout();
-    navigate('/linkpage');
-  };
-
   return (
     <>
       <div className="relative">
-        {/* Hero Image */}
-          <div className="min-h-full bg-transparent">
-          <img
-            src="https://picsum.photos/2000/1000"
-            alt="Hero"
-            className="object-cover w-full h-full"
-          />
-        </div>
-        {/* Overlay */}
+        <img src="hero.jpg" alt="Hero" className="object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-center">
           <h1 className="text-white text-4xl font-bold mb-4">
             Welcome to Our Store
@@ -41,32 +21,39 @@ const Home = () => {
         </div>
       </div>
 
-      <Paper elevation={3}>
-        <h1>Home</h1>
-        <ul>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/editor">Go to the Editor page</Link>
-          </li>
-
-          <li>
-            <Link to="/admin">Go to the Admin page</Link>
-          </li>
-
-          <li>
-            <Link to="/lounge">Go to the Lounge</Link>
-          </li>
-
-          <li>
-            <Link to="/linkpage">Go to the link page</Link>
-          </li>
-        </ul>
-        <div className="flexGrow">
-          <button onClick={signOut}>Sign Out</button>
+      <div className="container my-20 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex items-center justify-center mb-4">
+              <ShoppingCart fontSize="large" />
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Free Shipping</h2>
+            <p className="text-gray-600">
+              Enjoy free shipping on all orders over $50.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex items-center justify-center mb-4">
+              <ShoppingCart fontSize="large" />
+            </div>
+            <h2 className="text-xl font-semibold mb-2">
+              24/7 Customer Support
+            </h2>
+            <p className="text-gray-600">
+              Our customer support team is available 24/7 to assist you.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex items-center justify-center mb-4">
+              <ShoppingCart fontSize="large" />
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Easy Returns</h2>
+            <p className="text-gray-600">
+              We offer hassle-free returns within 30 days of purchase.
+            </p>
+          </div>
         </div>
-      </Paper>
+      </div>
     </>
   );
 };

@@ -1,7 +1,6 @@
 import axios from '../api/axios';
 import useAxios from '../hooks/useAxios';
-
-import Card from './productCard';
+import ProductCard from './ProductCard';
 
 export default function Products() {
   const [products, error, loading, axiosFetch] = useAxios({
@@ -22,7 +21,7 @@ export default function Products() {
         {products && products.results ? (
           <>
             {products.results.map((product) => (
-              <Card
+              <ProductCard
                 id={product.id}
                 pictureUrl={product.pictureURL}
                 name={product.name}
