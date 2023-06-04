@@ -17,19 +17,13 @@ const Home = () => {
     <>
       <div className="relative">
         {/* Hero Image */}
-        <Suspense
-          fallback={
-            <div style={{ width: '2000px', height: '1000px' }}>
-              <CircularProgress />
-            </div>
-          }
-        >
+          <div className="min-h-full bg-transparent">
           <img
             src="https://picsum.photos/2000/1000"
             alt="Hero"
             className="object-cover w-full h-full"
           />
-        </Suspense>
+        </div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Hero Content */}
